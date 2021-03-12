@@ -1,0 +1,11 @@
+.table-primary {
+    background-color: goldenrod;
+}
+
+.table-warning {
+    background-color: darkgoldenrod;
+}
+
+.table-danger {
+    background-color: darkorange;
+}

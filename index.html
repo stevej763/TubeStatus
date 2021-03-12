@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Angular Learning</title>
+    <link rel="shortcut icon" href="train.png" type="image/png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="module.js"></script>
+</head>
+
+<body ng-app="myModule" ng-controller="myController">
+    <div class="container">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Station</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-class="{
+                                'table-success' : station.lineStatuses[0].statusSeverity == 10,
+                                'table-info' : station.lineStatuses[0].statusSeverity < 10,
+                                'table-warning' : station.lineStatuses[0].statusSeverity < 7, 
+                                'table-danger' : station.lineStatuses[0].statusSeverity < 5 }"
+                    ng-repeat="station in stations">
+                    <td>{{station.name}}</td>
+                    <td>{{station.lineStatuses[0].statusSeverityDescription}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
