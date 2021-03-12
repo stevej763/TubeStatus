@@ -21,14 +21,9 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-class="{
-                                'table-success' : station.lineStatuses[0].statusSeverity == 10,
-                                'table-info' : station.lineStatuses[0].statusSeverity < 10,
-                                'table-warning' : station.lineStatuses[0].statusSeverity < 7, 
-                                'table-danger' : station.lineStatuses[0].statusSeverity < 5 }"
-                    ng-repeat="station in stations">
+                <tr ng-repeat="station in stations" ng-class="tableRowClass(station)">
                     <td>{{station.name}}</td>
-                    <td>{{station.lineStatuses[0].statusSeverityDescription}}</td>
+                    <td >{{station.lineStatuses[0].statusSeverityDescription}}</td>
                 </tr>
             </tbody>
         </table>
@@ -36,3 +31,9 @@
 </body>
 
 </html>
+
+<!-- ng-class="{
+                                'table-success' : station.lineStatuses[0].statusSeverity == 10,
+                                'table-info' : station.lineStatuses[0].statusSeverity < 10,
+                                'table-warning' : station.lineStatuses[0].statusSeverity < 7, 
+                                'table-danger' : station.lineStatuses[0].statusSeverity < 5 }" -->

@@ -11,11 +11,22 @@ myModule = angular.module("myModule", [])
             console.log(err)
         })
 
-        $scope.tableRowClass = (severity) => {
-            return severity
+        $scope.tableRowClass = (station) => {
+            let severity = station.lineStatuses[0].statusSeverity
+            let colorClass;
+            console.log(severity)
+
+            if (severity < 5) {
+                colorClass = "table-danger"
+            } else if (severity < 7) {
+                colorClass = "table-warningr"
+            } else if (severity < 10) {
+                colorClass = "table-info"
+            } else if (severity == 10) {
+                colorClass = "table-success"
+            }
+            console.log(colorClass)
+            return colorClass
         }
 
-    }
-    
-    
-    )
+    })
